@@ -230,6 +230,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .prod-visual svg{width:64px;height:64px;stroke:#fff;fill:none;stroke-width:1.2;opacity:.9;position:relative;z-index:1;}
 .prod-mkt{background:linear-gradient(135deg,var(--blue-md) 0%,var(--blue-dk) 100%);}
 .prod-dcw{background:linear-gradient(135deg,#1D5C8C 0%,#0A1F3C 100%);}
+.prod-hyd{background:linear-gradient(135deg,#0E7490 0%,#0C3468 100%);}
+.prod-flw{background:linear-gradient(135deg,#1A6BCC 0%,#0E7490 100%);}
 .prod-body{padding:2rem;display:flex;flex-direction:column;flex:1;}
 .prod-badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;
             text-transform:uppercase;color:var(--blue-lt);margin-bottom:.6rem;}
@@ -275,7 +277,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
       <div class="n-menu">
         <a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a>
         <a href="https://atlas.bluecredits.org/" target="_blank">BlueCredit Atlas</a>
-        <a href="bluefund.html">The Blue Fund</a>
+        <a href="https://hydro.bluecredits.org/" target="_blank">BlueCredit Hydro</a>
+        <a href="https://flow.bluecredits.org/" target="_blank">BlueCredit Flow</a>
       </div>
     </div>
     <div class="n-drop" id="nd-consulting">
@@ -349,7 +352,7 @@ document.addEventListener('click',function(e){
       </div>
     </div>
     <div class="hc">
-      <div class="cb"><div class="cv">2<span>+</span></div><div class="cl">Platforms in market</div></div>
+      <div class="cb"><div class="cv">4</div><div class="cl">Platforms in market</div></div>
       <div class="cb"><div class="cv">1B<span>+</span></div><div class="cl">Gallons of verified water data</div></div>
       <div class="cb"><div class="cv">SAM<span>.</span></div><div class="cl">Registered &amp; contracting ready</div></div>
       <div class="cb"><div class="cv">DMV</div><div class="cl">Based, globally experienced</div></div>
@@ -368,7 +371,7 @@ document.addEventListener('click',function(e){
   <div class="inn">
     <div class="lbl">Solutions</div>
     <h2 class="stitle">Technology built on water science</h2>
-    <p class="ssub">Data platforms that turn verified water data into tradeable assets and decision-ready intelligence, and a fund that finances the projects behind them.</p>
+    <p class="ssub">Data platforms that turn verified water data into tradeable assets, decision-ready intelligence and engineering models.</p>
     <div class="prod-grid">
       <div class="prod-card">
         <div class="prod-visual prod-mkt">
@@ -399,14 +402,42 @@ document.addEventListener('click',function(e){
             <li>PUE/WUE-based facility modeling</li>
             <li>Basin-level "Water Debt" indicators</li>
           </ul>
-          <a href="https://atlas.bluecredits.org" target="_blank" class="prod-cta">Visit Platform <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://atlas.bluecredits.org/" target="_blank" class="prod-cta">Visit Platform <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-visual prod-hyd">
+          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 14.5c.6 1.6 2 2.5 3.5 2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="prod-body">
+          <span class="prod-badge">Platform · New</span>
+          <h3>BlueCredit Hydro</h3>
+          <p>Water modeling for any U.S. site in the browser — inputs pulled automatically from federal data, models run on BlueCredit's servers.</p>
+          <ul>
+            <li>Stormwater: TR-55 and EPA SWMM site networks</li>
+            <li>Flood flows and groundwater (Theis, MODFLOW 6)</li>
+            <li>Rainwater harvesting tank sizing</li>
+          </ul>
+          <a href="https://hydro.bluecredits.org/" target="_blank" class="prod-cta">Visit Hydro <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-visual prod-flw">
+          <svg viewBox="0 0 24 24"><path d="M3 6h6v4h6v4h6M3 6v4M21 14v4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg>
+        </div>
+        <div class="prod-body">
+          <span class="prod-badge">Platform · New</span>
+          <h3>BlueCredit Flow</h3>
+          <p>Hydraulic modeling on a map — build networks from public data, run industry-standard engines and print reports.</p>
+          <ul>
+            <li>Storm drain systems (EPA SWMM)</li>
+            <li>Water distribution (EPANET)</li>
+            <li>Culverts, bridges and dams</li>
+          </ul>
+          <a href="https://flow.bluecredits.org/" target="_blank" class="prod-cta">Visit Flow <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
-    <a href="bluefund.html" style="display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.5rem 2rem;text-decoration:none;">
-      <span><span class="prod-badge">New · Fund</span><span style="display:block;font-family:var(--ff-d);font-size:1.35rem;font-weight:700;color:#fff;">The Blue Fund</span><span style="display:block;font-size:.88rem;color:rgba(255,255,255,.6);margin-top:.3rem;">A $10 million fund that helps water projects get financed.</span></span>
-      <span class="prod-cta" style="margin-top:0;">Learn more &rarr;</span>
-    </a>
   </div>
 </section>
 <section>
@@ -493,8 +524,9 @@ document.addEventListener('click',function(e){
     </div>
     <div class="fc"><h4>Solutions</h4><ul>
       <li><a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a></li>
-      <li><a href="https://atlas.bluecredits.org" target="_blank">BlueCredit Atlas</a></li>
-      <li><a href="bluefund.html">The Blue Fund</a></li>
+      <li><a href="https://atlas.bluecredits.org/" target="_blank">BlueCredit Atlas</a></li>
+      <li><a href="https://hydro.bluecredits.org/" target="_blank">BlueCredit Hydro</a></li>
+      <li><a href="https://flow.bluecredits.org/" target="_blank">BlueCredit Flow</a></li>
     </ul></div>
     <div class="fc"><h4>Research</h4><ul>
       <li><a href="research.html">Overview</a></li>
