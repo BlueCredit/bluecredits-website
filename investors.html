@@ -295,9 +295,13 @@ textarea{resize:vertical;min-height:90px;}
       <svg viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <a href="newsroom.html" class="n-right-link">Newsroom</a>
-    <a href="https://marketplace.bluecredits.org/login" target="_blank" class="n-login">
+    <div id="bc-apps">
+      <button type="button" id="bc-apps-btn" aria-haspopup="true" aria-expanded="false" aria-controls="bc-apps-panel" title="BlueCredit apps" aria-label="BlueCredit apps"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2.1"/><circle cx="12" cy="5" r="2.1"/><circle cx="19" cy="5" r="2.1"/><circle cx="5" cy="12" r="2.1"/><circle cx="12" cy="12" r="2.1"/><circle cx="19" cy="12" r="2.1"/><circle cx="5" cy="19" r="2.1"/><circle cx="12" cy="19" r="2.1"/><circle cx="19" cy="19" r="2.1"/></svg></button>
+      <div id="bc-apps-panel" role="menu" aria-label="BlueCredit apps"></div>
+    </div>
+    <a href="https://marketplace.bluecredits.org/login" target="_blank" class="n-signin">
       <svg viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Login
+      Sign in
     </a>
   </div>
 </nav>
@@ -434,5 +438,6 @@ document.addEventListener('click',function(e){
   </div>
 </div>
 
+<script src="assets/bc-apps.js?v=20261018" defer></script>
 </body>
 </html>
