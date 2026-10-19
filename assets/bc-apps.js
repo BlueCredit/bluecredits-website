@@ -1,4 +1,4 @@
-/* BlueCredit app launcher (9-dot menu) for bluecredits.org: the same menu as Atlas, Hydro, Flow and Plume.
+/* BlueCredit app launcher (9-dot menu) for bluecredits.org: the same menu as Atlas, Hydro, Flow, Plume and Project.
  * Needs #bc-apps > #bc-apps-btn + #bc-apps-panel in the nav (next to Newsroom and Sign in). Adds its own styles. */
 window.BC_APP = 'home';
 (function () { const s = document.createElement('style'); s.textContent = `#bc-apps { position: relative; z-index: 1003; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
@@ -37,14 +37,14 @@ window.BC_APP = 'home';
 #bc-apps-panel a.app .ic, #bc-apps-panel a.app .ic svg { width: 30px !important; height: 30px !important; }
 #bc-apps-panel .ft { font-size: 10.5px !important; padding: 7px 4px 3px !important; }
 `; document.head.appendChild(s); })();
-/* BlueCredit app launcher (9-dot menu), shared by Atlas, Hydro, Flow and Plume. Needs #bc-apps > #bc-apps-btn + #bc-apps-panel on the page (index.html, pages/hc.js). */
+/* BlueCredit app launcher (9-dot menu), shared by every BlueCredit app. Needs #bc-apps > #bc-apps-btn + #bc-apps-panel on the page (index.html, pages/hc.js). */
 (function () {
     // BlueCredit apps shown in the launcher, in this order (same as the Marketplace/Account launcher).
     // Account and Marketplace URLs follow window.BC_ACCOUNT (js/account.js).
     const acctUrl = () => ((window.BC_ACCOUNT && window.BC_ACCOUNT.account) || 'https://marketplace.bluecredits.org/account').replace(/\/$/, '');
     const initials = () => { const u = window.dcwlUser && window.dcwlUser(); return u ? (((u.first_name || '')[0] || '') + ((u.last_name || '')[0] || '') || (u.email || '?')[0]).toUpperCase() : ''; };
     // Which app this page belongs to (BC_ACCOUNT.app from js/account.js, or the host name); Help Center pages link back to their app
-    const APP = window.BC_APP || (window.BC_ACCOUNT && window.BC_ACCOUNT.app) || (/^hydro\./.test(location.hostname) ? 'hydro' : /^flow\./.test(location.hostname) ? 'flow' : /^plume\./.test(location.hostname) ? 'plume' : 'atlas');
+    const APP = window.BC_APP || (window.BC_ACCOUNT && window.BC_ACCOUNT.app) || (/^hydro\./.test(location.hostname) ? 'hydro' : /^flow\./.test(location.hostname) ? 'flow' : /^plume\./.test(location.hostname) ? 'plume' : /^project\./.test(location.hostname) ? 'project' : 'atlas');
     const inPages = /\/pages\//.test(location.pathname);
     const BC_APPS = [
         { name: 'Account', url: () => acctUrl(), desc: 'Profile, security, plan and billing',
@@ -61,6 +61,8 @@ window.BC_APP = 'home';
           icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#0e7490"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaF)"/><circle cx="14" cy="16" r="3.6" fill="#fff"/><circle cx="34" cy="16" r="3.6" fill="#fff"/><circle cx="24" cy="33" r="3.6" fill="#fff"/><path d="M14 16h20M14 16l10 17M34 16 24 33" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>' },
         { name: 'Plume', url: () => APP === 'plume' ? '/' : 'https://plume.bluecredits.org', here: APP === 'plume' && !inPages, desc: 'Pollution spread in air, rivers and groundwater',
           icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaP)"/><path d="M14 36V22h6v14" fill="#fff"/><path d="M17 18c0-3 3-3 3-6M21 18c2-2 6-1 7-4 2 1 6 2 7 6-3 2-8 2-11 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>' },
+        { name: 'Project', url: () => APP === 'project' ? '/' : 'https://project.bluecredits.org', here: APP === 'project' && !inPages, desc: 'Water project schedules, inventories and bid quantities',
+          icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaJ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaJ)"/><rect x="11" y="13" width="14" height="5" rx="2.5" fill="#fff"/><rect x="18" y="21.5" width="16" height="5" rx="2.5" fill="#fff" opacity=".85"/><rect x="25" y="30" width="12" height="5" rx="2.5" fill="#fff" opacity=".7"/><path d="M25 18v3.5M34 26.5V30" stroke="#c7d2fe" stroke-width="2"/></svg>' },
     ];
     const root = document.getElementById('bc-apps'), btn = document.getElementById('bc-apps-btn'), panel = document.getElementById('bc-apps-panel');
     const draw = () => {

@@ -213,8 +213,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 /* PLATFORMS */
 .platforms-light{background:#fff;}
 .platforms-light .lbl{color:#0B66E4;}
-.ptiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
-.ptile{position:relative;display:flex;flex-direction:column;aspect-ratio:1/1.12;padding:1.4rem 1.4rem 1.2rem;background:#fff;border:1px solid #E0E0E0;border-radius:0;text-decoration:none;color:#161616;transition:background .12s;}
+.ptiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.pt-grp{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0B66E4;margin-bottom:.7rem;}
+.ptile{position:relative;display:flex;flex-direction:column;aspect-ratio:16/10;padding:1.4rem 1.4rem 1.2rem;background:#fff;border:1px solid #E0E0E0;border-radius:0;text-decoration:none;color:#161616;transition:background .12s;}
 .ptile:hover,.ptile:focus-visible{background:#E8E8E8;outline:none;}
 .pt-text{position:relative;flex:1;}
 .ptile h3,.ptile p{position:absolute;inset:0 0 auto 0;margin:0;transition:opacity .15s;}
@@ -225,7 +226,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .pt-foot{display:flex;align-items:flex-end;justify-content:space-between;}
 .pt-ic svg{width:56px;height:56px;stroke:#161616;fill:none;stroke-width:1;display:block;}
 .pt-go{width:24px;height:24px;stroke:#0B66E4;fill:none;stroke-width:1.6;}
-@media (max-width:1150px){.ptiles{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:1150px){.ptiles{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:760px){.ptiles{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:480px){.ptiles{grid-template-columns:1fr;}.ptile{aspect-ratio:auto;min-height:220px;}}
 @media (hover:none){.ptile p{position:static;opacity:1;margin-top:.5rem;font-size:.82rem;}.ptile h3{position:static;}.ptile:hover h3{opacity:1;}}
@@ -288,6 +289,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/light.css?v=20261018g">
+<style id="nm-css">
+.n-mega{min-width:560px;padding:10px 8px 6px;}
+.n-drop.open .n-mega{display:grid;grid-template-columns:1fr 1fr;column-gap:6px;}
+.n-mega .nm-h{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);padding:8px 14px 4px;}
+.n-mega a{white-space:normal;padding:8px 14px;border-radius:4px;}
+.n-mega a b{display:block;font-weight:600;color:var(--gray-900,#111);font-size:.84rem;}
+.n-mega a small{display:block;font-size:.75rem;color:var(--gray-500);margin-top:1px;}
+.n-mega a:hover b{color:var(--blue-dk);}
+.n-mega .nm-all{grid-column:1/-1;border-top:1px solid var(--gray-100);margin-top:6px;padding-top:10px;font-size:.8rem;font-weight:600;color:var(--blue);}
+@media (max-width:900px){.n-mega{min-width:0;}.n-drop.open .n-mega{display:block;}}
+</style>
 </head>
 <body>
 <nav>
@@ -298,12 +310,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
       <button class="n-btn" onclick="navToggle('platforms')">Solutions
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </button>
-      <div class="n-menu">
-        <a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a>
-        <a href="https://atlas.bluecredits.org/" target="_blank">BlueCredit Atlas</a>
-        <a href="https://hydro.bluecredits.org/" target="_blank">BlueCredit Hydro</a>
-        <a href="https://flow.bluecredits.org/" target="_blank">BlueCredit Flow</a>
-        <a href="https://plume.bluecredits.org/" target="_blank">BlueCredit Plume</a>
+      <div class="n-menu n-mega">
+        <div class="nm-col">
+          <div class="nm-h">Water credits</div>
+          <a href="https://marketplace.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Marketplace</b><small>Buy, sell and retire water credits</small></a>
+          <div class="nm-h">Water data</div>
+          <a href="https://atlas.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Atlas</b><small>Data center water demand and supply</small></a>
+          <div class="nm-h">Project delivery</div>
+          <a href="https://project.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Project</b><small>Schedules, inventories and bid quantities</small></a>
+        </div>
+        <div class="nm-col">
+          <div class="nm-h">Engineering models</div>
+          <a href="https://hydro.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Hydro</b><small>Runoff, groundwater and floods</small></a>
+          <a href="https://flow.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Flow</b><small>Storm drains, water networks, culverts and dams</small></a>
+          <a href="https://plume.bluecredits.org/" target="_blank" rel="noopener"><b>BlueCredit Plume</b><small>Pollution in air, rivers and groundwater</small></a>
+        </div>
+        <a class="nm-all" href="index.html#platforms">All solutions →</a>
       </div>
     </div>
     <div class="n-drop" id="nd-consulting">
@@ -381,7 +403,7 @@ document.addEventListener('click',function(e){
       </div>
     </div>
     <div class="hc">
-      <div class="cb"><div class="cv">5</div><div class="cl">Platforms in market</div></div>
+      <div class="cb"><div class="cv">6</div><div class="cl">Platforms in market</div></div>
       <div class="cb"><div class="cv">1B<span>+</span></div><div class="cl">Gallons of verified water data</div></div>
       <div class="cb"><div class="cv">SAM<span>.</span></div><div class="cl">Registered &amp; contracting ready</div></div>
       <div class="cb"><div class="cv">DMV</div><div class="cl">Based, globally experienced</div></div>
@@ -400,32 +422,37 @@ document.addEventListener('click',function(e){
   <div class="inn">
     <div class="lbl">Solutions</div>
     <h2 class="stitle">Technology built on water science</h2>
-    <p class="ssub">Data platforms that turn verified water data into tradeable assets, decision-ready intelligence and engineering models.</p>
+    <p class="ssub">Data platforms that turn verified water data into tradeable assets, decision-ready intelligence, engineering models and delivered projects.</p>
     <div class="ptiles">
       <a class="ptile" href="https://marketplace.bluecredits.org/" target="_blank" rel="noopener">
-        <span class="pt-text"><h3>Trade verified water credits with BlueCredit Marketplace</h3>
+        <span class="pt-grp">Water credits</span><span class="pt-text"><h3>Trade verified water credits with BlueCredit Marketplace</h3>
         <p>Buy, sell and retire science-based water credits and fund water-positive projects.</p></span>
         <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ptile" href="https://atlas.bluecredits.org/" target="_blank" rel="noopener">
-        <span class="pt-text"><h3>See data center water demand with BlueCredit Atlas</h3>
+        <span class="pt-grp">Water data</span><span class="pt-text"><h3>See data center water demand with BlueCredit Atlas</h3>
         <p>Facility water use mapped against basin supply, utilities and watershed stress.</p></span>
         <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6 12.75H6m0 0l1.5 1.5M6 16.5l1.5-1.5M6 16.5l1.5 1.5M13.5 21l1.5-1.5m-1.5 1.5L12 19.5m1.5 1.5l1.5-1.5M8.25 2.25H6.108c-1.135 0-2.098.847-2.245 1.972l-.022.165A11.952 11.952 0 002.25 9.75v9.75c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125V9.75c0-1.298-.21-2.547-.6-3.713" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ptile" href="https://hydro.bluecredits.org/" target="_blank" rel="noopener">
-        <span class="pt-text"><h3>Model stormwater, floods and groundwater with BlueCredit Hydro</h3>
+        <span class="pt-grp">Engineering models</span><span class="pt-text"><h3>Model stormwater, floods and groundwater with BlueCredit Hydro</h3>
         <p>TR-55, SWMM and MODFLOW 6 for any U.S. site, with inputs filled from federal data.</p></span>
         <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 14.5c.6 1.6 2 2.5 3.5 2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ptile" href="https://flow.bluecredits.org/" target="_blank" rel="noopener">
-        <span class="pt-text"><h3>Design storm drains and water networks with BlueCredit Flow</h3>
+        <span class="pt-grp">Engineering models</span><span class="pt-text"><h3>Design storm drains and water networks with BlueCredit Flow</h3>
         <p>EPA SWMM and EPANET networks, culverts, bridges and dams on one map.</p></span>
         <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M3 6h6v4h6v4h6M3 6v4M21 14v4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ptile" href="https://plume.bluecredits.org/" target="_blank" rel="noopener">
-        <span class="pt-text"><h3>Trace pollution in air, rivers and groundwater with BlueCredit Plume</h3>
+        <span class="pt-grp">Engineering models</span><span class="pt-text"><h3>Trace pollution in air, rivers and groundwater with BlueCredit Plume</h3>
         <p>Air dispersion, river spills, groundwater and coastal plumes, and who they reach.</p></span>
         <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M5 20h4V9H5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9c0-3 2-4 4-4 1-2 4-2 5 0 2 0 3 2 2 4 1 1 1 3-1 3h-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ptile" href="https://project.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-grp">Project delivery</span><span class="pt-text"><h3>Plan and build funded water projects with BlueCredit Project</h3>
+        <p>Inventories, bid quantities, schedules and procedures for stormwater construction, from Flow and Hydro designs.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M3 5h8M7 11h10M12 17h9" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v18" stroke-linecap="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
   </div>
@@ -518,6 +545,7 @@ document.addEventListener('click',function(e){
       <li><a href="https://hydro.bluecredits.org/" target="_blank">BlueCredit Hydro</a></li>
       <li><a href="https://flow.bluecredits.org/" target="_blank">BlueCredit Flow</a></li>
       <li><a href="https://plume.bluecredits.org/" target="_blank">BlueCredit Plume</a></li>
+      <li><a href="https://project.bluecredits.org/" target="_blank">BlueCredit Project</a></li>
     </ul></div>
     <div class="fc"><h4>Research</h4><ul>
       <li><a href="research.html">Overview</a></li>
@@ -546,6 +574,6 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 </div>
-<script src="assets/bc-apps.js?v=20261018b" defer></script>
+<script src="assets/bc-apps.js?v=20261019h" defer></script>
 </body>
 </html>
