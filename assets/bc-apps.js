@@ -27,6 +27,15 @@ window.BC_APP = 'home';
 .n-signin svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; }
 .n-right #bc-apps { margin-left: 6px; }
 @media (max-width: 700px) { #bc-apps-panel { position: fixed; top: 64px; right: 12px; } .n-signin { padding: 8px 12px; font-size: 13px; } }
+
+/* compact version for the website */
+#bc-apps-panel { width: 252px !important; border-radius: 18px !important; padding: 6px !important; top: 48px !important; }
+#bc-apps-panel .card { border-radius: 14px !important; padding: 10px 8px 8px !important; }
+#bc-apps-panel .hd { font-size: 14px !important; font-weight: 600 !important; padding: 2px 8px 8px !important; }
+#bc-apps-panel .grid { grid-template-columns: repeat(3, 1fr) !important; gap: 2px !important; }
+#bc-apps-panel a.app { gap: 5px !important; padding: 8px 2px 7px !important; border-radius: 10px !important; font-size: 11.5px !important; }
+#bc-apps-panel a.app .ic, #bc-apps-panel a.app .ic svg { width: 30px !important; height: 30px !important; }
+#bc-apps-panel .ft { font-size: 10.5px !important; padding: 7px 4px 3px !important; }
 `; document.head.appendChild(s); })();
 /* BlueCredit app launcher (9-dot menu), shared by Atlas, Hydro, Flow and Plume. Needs #bc-apps > #bc-apps-btn + #bc-apps-panel on the page (index.html, pages/hc.js). */
 (function () {

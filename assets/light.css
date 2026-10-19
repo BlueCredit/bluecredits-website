@@ -1,0 +1,124 @@
+/* BlueCredit website: light theme, matching BlueCredit Marketplace (white pages, bold sans headings, bright blue accents).
+   Loaded last on every page, so it overrides the page styles. */
+:root {
+  --ff-d: "Poppins", system-ui, sans-serif; --ff-b: "Poppins", system-ui, sans-serif;
+  --mk-blue: #0B66E4; --mk-blue-dk: #0852BC; --mk-ink: #161616; --mk-text: #4B5563; --mk-mute: #6B7280;
+  --mk-bg: #F5F8FC; --mk-tint: #EEF5FF; --mk-line: #E3E8EF;
+  --blue: #0B66E4; --blue-dk: #0852BC; --blue-md: #0B66E4; --blue-lt: #0B66E4;
+}
+body, button, input, select, textarea { font-family: var(--ff-b); }
+h1, h2, h3, h4, .stitle { font-family: var(--ff-d); letter-spacing: -.01em; }
+.stitle { color: var(--mk-ink); font-weight: 700; }
+.lbl, .hl { color: var(--mk-blue) !important; }
+em { font-style: normal; }
+
+/* buttons */
+.bb { background: var(--mk-blue); border-radius: 8px; }
+.bb:hover { background: var(--mk-blue-dk); }
+.bw { background: var(--mk-blue); color: #fff !important; border-radius: 8px; }
+.bw:hover { background: var(--mk-blue-dk); }
+.bg, .bo { border-color: var(--mk-blue); color: var(--mk-blue); background: #fff; }
+
+/* hero and page headers: the Marketplace's "bubbly" royal blue, with soft light bubbles and cyan highlights */
+.hero, .ph { position: relative; overflow: hidden; border: 0 !important;
+  background:
+    radial-gradient(circle at 6% 22%, rgba(255,255,255,.26) 0, rgba(255,255,255,.10) 9%, transparent 19%),
+    radial-gradient(circle at 93% 88%, rgba(255,255,255,.22) 0, rgba(255,255,255,.08) 10%, transparent 21%),
+    radial-gradient(circle at 21% 46%, rgba(255,255,255,.10) 0, transparent 2.6%),
+    radial-gradient(circle at 5% 53%, rgba(255,255,255,.22) 0, transparent 1.2%),
+    radial-gradient(circle at 62% 50%, rgba(255,255,255,.07) 0, transparent 3.4%),
+    radial-gradient(circle at 86% 94%, rgba(255,255,255,.35) 0, transparent .6%),
+    linear-gradient(120deg, #2350C2 0%, #2147AE 45%, #1F3F99 100%) !important; }
+.hero::before, .hero::after, .ph::before, .ph::after { display: none !important; }
+.hero h1, .ph h1 { color: #fff !important; }
+.hero h1 em, .ph h1 em { color: #3EDBF0 !important; font-style: normal !important; }
+.hsub, .ph p { color: rgba(255,255,255,.92) !important; }
+.hl, .hero .lbl, .ph .lbl { color: #9EEBFA !important; }
+.hey { background: rgba(255,255,255,.12) !important; border: 1px solid rgba(255,255,255,.28) !important; color: #fff !important; }
+.hey * { color: inherit; }
+.hero .bp { background: #fff !important; color: #1F3F99 !important; box-shadow: 0 8px 24px rgba(10,30,90,.25); }
+.hero .bp:hover { background: #EAF2FF !important; }
+.hero .bg, .hero .bo { background: transparent !important; border: 1.5px solid #fff !important; color: #fff !important; }
+.hero .bg:hover, .hero .bo:hover { background: rgba(255,255,255,.12) !important; }
+.ph .bw, .ph .bb { background: #fff !important; color: #1F3F99 !important; }
+.hc { background: rgba(255,255,255,.18) !important; border: 1px solid rgba(255,255,255,.25) !important; box-shadow: none; backdrop-filter: blur(6px); }
+.cb { background: rgba(255,255,255,.08) !important; }
+.cb:hover { background: rgba(255,255,255,.16) !important; }
+.cv, .cv span { color: #fff !important; }
+.cl { color: rgba(255,255,255,.75) !important; }
+.page-tabs { background: rgba(255,255,255,.12) !important; border: 1px solid rgba(255,255,255,.25) !important; }
+.ptab { color: rgba(255,255,255,.85) !important; }
+.ptab:hover { color: #fff !important; background: rgba(255,255,255,.12) !important; }
+.ptab.act { background: #fff !important; color: #1F3F99 !important; }
+
+/* call-to-action bands and dark blocks */
+.ctab { background: var(--mk-tint) !important; }
+.ctab h2 { color: var(--mk-ink) !important; }
+.ctab p { color: var(--mk-text) !important; }
+.contact-dark { background: var(--mk-bg) !important; }
+.contact-dark .stitle { color: var(--mk-ink) !important; }
+.contact-dark .ssub { color: var(--mk-text) !important; }
+.contact-item { color: var(--mk-text) !important; background: #fff !important; border-color: var(--mk-line) !important; }
+.contact-item:hover { color: var(--mk-blue) !important; }
+.contact-item * { color: inherit; }
+.dark-form { background: #fff !important; border: 1px solid var(--mk-line) !important; }
+.dark-form .form-card-title { color: var(--mk-ink) !important; }
+.dark-form label { color: var(--mk-text) !important; }
+.dark-form input, .dark-form select, .dark-form textarea { background: #fff !important; border: 1px solid #D1D9E4 !important; color: var(--mk-ink) !important; }
+.sub-btn { background: var(--mk-blue) !important; color: #fff !important; }
+.sub-btn:hover { background: var(--mk-blue-dk) !important; }
+.bf-feature { background: var(--mk-tint) !important; }
+.bf-feature h3 { color: var(--mk-ink) !important; }
+.bf-feature p, .bf-fine { color: var(--mk-text) !important; }
+.bf-steps li span { color: var(--mk-blue) !important; }
+.r-platform-cta { background: var(--mk-tint) !important; }
+.r-platform-cta h4 { color: var(--mk-ink) !important; }
+.r-platform-cta p { color: var(--mk-text) !important; }
+.platforms-bg { background: #fff !important; }
+.platforms-bg::before { display: none !important; }
+.platforms-bg .stitle { color: var(--mk-ink) !important; }
+.platforms-bg .ssub { color: var(--mk-text) !important; }
+
+/* footer */
+footer { background: var(--mk-bg) !important; color: var(--mk-text) !important; border-top: 1px solid var(--mk-line); }
+.fg { border-bottom-color: var(--mk-line) !important; }
+.fc h4 { color: var(--mk-ink) !important; }
+.fc a { color: var(--mk-text) !important; }
+.fc a:hover, .fs a:hover { color: var(--mk-blue) !important; }
+.fbot { color: var(--mk-mute) !important; }
+.fs a { color: var(--mk-mute) !important; }
+
+/* forms on light bands (inline styles were written for dark backgrounds) */
+.ctab input, .ctab textarea, .ctab select { color: var(--mk-ink) !important; background: #fff !important; border: 1px solid #D1D9E4 !important; }
+.ctab input:focus, .ctab textarea:focus, .ctab select:focus { border-color: var(--mk-blue) !important; }
+.ctab label { color: var(--mk-text) !important; }
+.ctab ::placeholder { color: #9AA4B2 !important; }
+.fb p, .fb p[style] { color: var(--mk-mute) !important; }
+.contact-item div[style] { color: var(--mk-mute) !important; }
+.contact-icon { background: var(--mk-tint) !important; }
+.contact-icon svg { stroke: var(--mk-blue) !important; }
+.bp { background: var(--mk-blue); color: #fff; border-radius: 8px; }
+.bp:hover { background: var(--mk-blue-dk); }
+
+/* Newsroom: LinkedIn post carousel */
+.li-carousel { margin-bottom: 3rem; }
+.li-carousel.li-empty { display: none; }
+.li-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; gap: 1rem; }
+.li-brand { display: flex; align-items: center; gap: 8px; font-family: var(--ff-d); font-weight: 600; font-size: .95rem; color: var(--mk-ink); }
+.li-brand svg { width: 22px; height: 22px; }
+.li-nav { display: flex; align-items: center; gap: 8px; }
+.li-nav button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--mk-line); background: #fff; color: var(--mk-ink); font-size: 22px; line-height: 1; cursor: pointer; }
+.li-nav button:hover:not(:disabled) { border-color: var(--mk-blue); color: var(--mk-blue); }
+.li-nav button:disabled { opacity: .35; cursor: default; }
+.li-one .li-nav button { display: none; }
+.li-follow { margin-left: 6px; padding: 8px 16px; border-radius: 8px; background: #0A66C2; color: #fff !important; font-weight: 600; font-size: .85rem; text-decoration: none; }
+.li-track { display: flex; gap: .75rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 4px; }
+.li-track::-webkit-scrollbar { display: none; }
+.li-slide { flex: 0 0 calc((100% - 2.25rem) / 4); scroll-snap-align: start; background: #fff; border: 1px solid var(--mk-line); border-radius: 12px; overflow: hidden; }
+.li-slide iframe { width: 100%; height: 420px; border: 0; display: block; }
+.li-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; }
+.li-dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; background: #C7D2E1; cursor: pointer; padding: 0; }
+.li-dots button.on { background: var(--mk-blue); width: 22px; border-radius: 4px; }
+@media (max-width: 1100px) { .li-slide { flex-basis: calc((100% - 1.5rem) / 3); } }
+@media (max-width: 800px) { .li-slide { flex-basis: calc((100% - .75rem) / 2); } }
+@media (max-width: 640px) { .li-slide { flex-basis: 100%; } }

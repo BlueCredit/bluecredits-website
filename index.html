@@ -211,37 +211,56 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .ctr{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
 
 /* PLATFORMS */
+.platforms-light{background:#fff;}
+.platforms-light .lbl{color:#0B66E4;}
+.ptiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+.ptile{position:relative;display:flex;flex-direction:column;aspect-ratio:1/1.12;padding:1.4rem 1.4rem 1.2rem;background:#fff;border:1px solid #E0E0E0;border-radius:0;text-decoration:none;color:#161616;transition:background .12s;}
+.ptile:hover,.ptile:focus-visible{background:#E8E8E8;outline:none;}
+.pt-text{position:relative;flex:1;}
+.ptile h3,.ptile p{position:absolute;inset:0 0 auto 0;margin:0;transition:opacity .15s;}
+.ptile h3{font-family:var(--ff-b);font-size:1.05rem;font-weight:400;line-height:1.45;color:#161616;}
+.ptile p{font-size:.92rem;line-height:1.55;color:#525252;opacity:0;}
+.ptile:hover h3,.ptile:focus-visible h3{opacity:0;}
+.ptile:hover p,.ptile:focus-visible p{opacity:1;}
+.pt-foot{display:flex;align-items:flex-end;justify-content:space-between;}
+.pt-ic svg{width:56px;height:56px;stroke:#161616;fill:none;stroke-width:1;display:block;}
+.pt-go{width:24px;height:24px;stroke:#0B66E4;fill:none;stroke-width:1.6;}
+@media (max-width:1150px){.ptiles{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:760px){.ptiles{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:480px){.ptiles{grid-template-columns:1fr;}.ptile{aspect-ratio:auto;min-height:220px;}}
+@media (hover:none){.ptile p{position:static;opacity:1;margin-top:.5rem;font-size:.82rem;}.ptile h3{position:static;}.ptile:hover h3{opacity:1;}}
 .platforms-bg{background:var(--navy);position:relative;overflow:hidden;}
 .platforms-bg::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 50% 60% at 90% 10%,rgba(30,107,204,.28) 0%,transparent 60%);}
 .platforms-bg .lbl{color:var(--blue-lt);}
 .platforms-bg .stitle{color:#fff;}
 .platforms-bg .ssub{color:rgba(255,255,255,.6);}
-.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;position:relative;}
+.prod-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem;position:relative;}
+.prod-grid > .prod-card{flex:0 1 calc((100% - 2.5rem) / 3);min-width:0;}
+@media (max-width:1000px){.prod-grid > .prod-card{flex-basis:calc((100% - 1.25rem) / 2);}}
+@media (max-width:640px){.prod-grid > .prod-card{flex-basis:100%;}}
 .prod-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
            border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
            transition:border-color .2s,transform .2s;}
 .prod-card:hover{border-color:var(--blue-lt);transform:translateY(-3px);}
-.prod-visual{height:180px;position:relative;display:flex;align-items:center;justify-content:center;
+.prod-visual{height:110px;position:relative;display:flex;align-items:center;justify-content:center;
              overflow:hidden;}
 .prod-visual::after{content:"";position:absolute;inset:0;
    background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);
    background-size:22px 22px;}
-.prod-visual svg{width:64px;height:64px;stroke:#fff;fill:none;stroke-width:1.2;opacity:.9;position:relative;z-index:1;}
+.prod-visual svg{width:44px;height:44px;stroke:#fff;fill:none;stroke-width:1.2;opacity:.9;position:relative;z-index:1;}
 .prod-mkt{background:linear-gradient(135deg,var(--blue-md) 0%,var(--blue-dk) 100%);}
 .prod-dcw{background:linear-gradient(135deg,#1D5C8C 0%,#0A1F3C 100%);}
 .prod-hyd{background:linear-gradient(135deg,#0E7490 0%,#0C3468 100%);}
 .prod-flw{background:linear-gradient(135deg,#1A6BCC 0%,#0E7490 100%);}
 .prod-plm{background:linear-gradient(135deg,#F97316 0%,#9A3412 100%);}
-.prod-grid > .prod-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - .75rem);}
-@media (max-width:760px){.prod-grid > .prod-card:last-child:nth-child(odd){width:100%;}}
-.prod-body{padding:2rem;display:flex;flex-direction:column;flex:1;}
+.prod-body{padding:1.35rem 1.4rem;display:flex;flex-direction:column;flex:1;}
 .prod-badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;
             text-transform:uppercase;color:var(--blue-lt);margin-bottom:.6rem;}
-.prod-body h3{font-family:var(--ff-d);font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:.6rem;}
-.prod-body p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:1.25rem;}
-.prod-body ul{list-style:none;margin-bottom:1.5rem;}
-.prod-body li{font-size:.83rem;color:rgba(255,255,255,.7);padding:5px 0;padding-left:18px;
+.prod-body h3{font-family:var(--ff-d);font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.6rem;}
+.prod-body p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:.9rem;}
+.prod-body ul{list-style:none;margin-bottom:1.1rem;}
+.prod-body li{font-size:.78rem;color:rgba(255,255,255,.7);padding:5px 0;padding-left:18px;
               position:relative;line-height:1.6;}
 .prod-body li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;
                        border-radius:50%;background:var(--blue-lt);}
@@ -267,6 +286,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .cons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;
            background:var(--gray-100);border-radius:18px;overflow:hidden;}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/light.css?v=20261018g">
 </head>
 <body>
 <nav>
@@ -375,93 +396,37 @@ document.addEventListener('click',function(e){
   <div class="ti"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>Prime &amp; Subcontracting Available</div>
   <div class="ti"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>Alexandria, VA · DMV Region</div>
 </div>
-<section class="platforms-bg" id="platforms">
+<section class="platforms-light" id="platforms">
   <div class="inn">
     <div class="lbl">Solutions</div>
     <h2 class="stitle">Technology built on water science</h2>
     <p class="ssub">Data platforms that turn verified water data into tradeable assets, decision-ready intelligence and engineering models.</p>
-    <div class="prod-grid">
-      <div class="prod-card">
-        <div class="prod-visual prod-mkt">
-          <svg viewBox="0 0 24 24"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="prod-body">
-          <span class="prod-badge">Platform · Live</span>
-          <h3>BlueCredit Marketplace</h3>
-          <p>A marketplace for water credit trading — connecting water-positive project developers with buyers and funders through verified, science-based water credits.</p>
-          <ul>
-            <li>Buy and sell verified water credits</li>
-            <li>Fund water-positive projects directly</li>
-            <li>Water Hub: shared data &amp; analytics layer</li>
-          </ul>
-          <a href="https://marketplace.bluecredits.org/" target="_blank" class="prod-cta">Visit Marketplace <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-visual prod-dcw">
-          <svg viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6 12.75H6m0 0l1.5 1.5M6 16.5l1.5-1.5M6 16.5l1.5 1.5M13.5 21l1.5-1.5m-1.5 1.5L12 19.5m1.5 1.5l1.5-1.5M8.25 2.25H6.108c-1.135 0-2.098.847-2.245 1.972l-.022.165A11.952 11.952 0 002.25 9.75v9.75c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125V9.75c0-1.298-.21-2.547-.6-3.713" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="prod-body">
-          <span class="prod-badge">Platform · MVP</span>
-          <h3>BlueCredit Atlas</h3>
-          <p>A decision-support platform quantifying the direct and indirect water footprint of data centers — linking facility-level demand to basin-scale hydrological vulnerability.</p>
-          <ul>
-            <li>Verified utility-record water demand data</li>
-            <li>PUE/WUE-based facility modeling</li>
-            <li>Basin-level "Water Debt" indicators</li>
-          </ul>
-          <a href="https://atlas.bluecredits.org/" target="_blank" class="prod-cta">Visit Platform <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-visual prod-hyd">
-          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 14.5c.6 1.6 2 2.5 3.5 2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="prod-body">
-          <span class="prod-badge">Platform · New</span>
-          <h3>BlueCredit Hydro</h3>
-          <p>Water modeling for any U.S. site in the browser — inputs pulled automatically from federal data, models run on BlueCredit's servers.</p>
-          <ul>
-            <li>Stormwater: TR-55 and EPA SWMM site networks</li>
-            <li>Flood flows and groundwater (Theis, MODFLOW 6)</li>
-            <li>Rainwater harvesting tank sizing</li>
-          </ul>
-          <a href="https://hydro.bluecredits.org/" target="_blank" class="prod-cta">Visit Hydro <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-visual prod-flw">
-          <svg viewBox="0 0 24 24"><path d="M3 6h6v4h6v4h6M3 6v4M21 14v4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg>
-        </div>
-        <div class="prod-body">
-          <span class="prod-badge">Platform · New</span>
-          <h3>BlueCredit Flow</h3>
-          <p>Hydraulic modeling on a map — build networks from public data, run industry-standard engines and print reports.</p>
-          <ul>
-            <li>Storm drain systems (EPA SWMM)</li>
-            <li>Water distribution (EPANET)</li>
-            <li>Culverts, bridges and dams</li>
-          </ul>
-          <a href="https://flow.bluecredits.org/" target="_blank" class="prod-cta">Visit Flow <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-visual prod-plm">
-          <svg viewBox="0 0 24 24"><path d="M5 20h4V9H5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9c0-3 2-4 4-4 1-2 4-2 5 0 2 0 3 2 2 4 1 1 1 3-1 3h-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="prod-body">
-          <span class="prod-badge">Platform · New</span>
-          <h3>BlueCredit Plume</h3>
-          <p>Pollution spread on a map — where a release goes in the air, down a river, through groundwater or across a bay, and who it reaches.</p>
-          <ul>
-            <li>Air dispersion with live weather, several stacks and wildfire smoke</li>
-            <li>River spills and the drinking water systems downstream</li>
-            <li>Groundwater plumes (MODFLOW 6) and coastal spills</li>
-            <li>Watershed, basin, utility and location pollution reports</li>
-          </ul>
-          <a href="https://plume.bluecredits.org/" target="_blank" class="prod-cta">Visit Plume <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 7l-10 10M17 7H8m9 0v9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
+    <div class="ptiles">
+      <a class="ptile" href="https://marketplace.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-text"><h3>Trade verified water credits with BlueCredit Marketplace</h3>
+        <p>Buy, sell and retire science-based water credits and fund water-positive projects.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ptile" href="https://atlas.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-text"><h3>See data center water demand with BlueCredit Atlas</h3>
+        <p>Facility water use mapped against basin supply, utilities and watershed stress.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6 12.75H6m0 0l1.5 1.5M6 16.5l1.5-1.5M6 16.5l1.5 1.5M13.5 21l1.5-1.5m-1.5 1.5L12 19.5m1.5 1.5l1.5-1.5M8.25 2.25H6.108c-1.135 0-2.098.847-2.245 1.972l-.022.165A11.952 11.952 0 002.25 9.75v9.75c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125V9.75c0-1.298-.21-2.547-.6-3.713" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ptile" href="https://hydro.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-text"><h3>Model stormwater, floods and groundwater with BlueCredit Hydro</h3>
+        <p>TR-55, SWMM and MODFLOW 6 for any U.S. site, with inputs filled from federal data.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 14.5c.6 1.6 2 2.5 3.5 2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ptile" href="https://flow.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-text"><h3>Design storm drains and water networks with BlueCredit Flow</h3>
+        <p>EPA SWMM and EPANET networks, culverts, bridges and dams on one map.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M3 6h6v4h6v4h6M3 6v4M21 14v4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="14" r="1.5"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ptile" href="https://plume.bluecredits.org/" target="_blank" rel="noopener">
+        <span class="pt-text"><h3>Trace pollution in air, rivers and groundwater with BlueCredit Plume</h3>
+        <p>Air dispersion, river spills, groundwater and coastal plumes, and who they reach.</p></span>
+        <span class="pt-foot"><span class="pt-ic"><svg viewBox="0 0 24 24"><path d="M5 20h4V9H5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9c0-3 2-4 4-4 1-2 4-2 5 0 2 0 3 2 2 4 1 1 1 3-1 3h-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><svg class="pt-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -581,6 +546,6 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 </div>
-<script src="assets/bc-apps.js?v=20261018" defer></script>
+<script src="assets/bc-apps.js?v=20261018b" defer></script>
 </body>
 </html>
