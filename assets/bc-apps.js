@@ -44,7 +44,7 @@ window.BC_APP = 'home';
     const acctUrl = () => ((window.BC_ACCOUNT && window.BC_ACCOUNT.account) || 'https://marketplace.bluecredits.org/account').replace(/\/$/, '');
     const initials = () => { const u = window.dcwlUser && window.dcwlUser(); return u ? (((u.first_name || '')[0] || '') + ((u.last_name || '')[0] || '') || (u.email || '?')[0]).toUpperCase() : ''; };
     // Which app this page belongs to (BC_ACCOUNT.app from js/account.js, or the host name); Help Center pages link back to their app
-    const APP = window.BC_APP || (window.BC_ACCOUNT && window.BC_ACCOUNT.app) || (/^hydro\./.test(location.hostname) ? 'hydro' : /^flow\./.test(location.hostname) ? 'flow' : /^plume\./.test(location.hostname) ? 'plume' : /^project\./.test(location.hostname) ? 'project' : 'atlas');
+    const APP = window.BC_APP || (window.BC_ACCOUNT && window.BC_ACCOUNT.app) || (/^hydro\./.test(location.hostname) ? 'hydro' : /^flow\./.test(location.hostname) ? 'flow' : /^plume\./.test(location.hostname) ? 'plume' : /^project\./.test(location.hostname) ? 'project' : /^cloud\./.test(location.hostname) ? 'cloud' : 'atlas');
     const inPages = /\/pages\//.test(location.pathname);
     const BC_APPS = [
         { name: 'Account', url: () => acctUrl(), desc: 'Profile, security, plan and billing',
@@ -63,6 +63,8 @@ window.BC_APP = 'home';
           icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaP)"/><path d="M14 36V22h6v14" fill="#fff"/><path d="M17 18c0-3 3-3 3-6M21 18c2-2 6-1 7-4 2 1 6 2 7 6-3 2-8 2-11 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>' },
         { name: 'Project', url: () => APP === 'project' ? '/' : 'https://project.bluecredits.org', here: APP === 'project' && !inPages, desc: 'Water project schedules, inventories and bid quantities',
           icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaJ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#4338ca"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaJ)"/><rect x="11" y="13" width="14" height="5" rx="2.5" fill="#fff"/><rect x="18" y="21.5" width="16" height="5" rx="2.5" fill="#fff" opacity=".85"/><rect x="25" y="30" width="12" height="5" rx="2.5" fill="#fff" opacity=".7"/><path d="M25 18v3.5M34 26.5V30" stroke="#c7d2fe" stroke-width="2"/></svg>' },
+        { name: 'Cloud', url: () => APP === 'cloud' ? '/' : 'https://cloud.bluecredits.org', here: APP === 'cloud' && !inPages, desc: 'Your projects and files from every BlueCredit app',
+          icon: () => '<svg viewBox="0 0 48 48"><defs><linearGradient id="bcaC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="10" fill="url(#bcaC)"/><path d="M32.5 32H17a6.5 6.5 0 1 1 1.4-12.85A8 8 0 0 1 33.6 22.3 4.9 4.9 0 0 1 32.5 32z" fill="#fff"/><path d="M24 29v-7m-3 3 3-3 3 3" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
     ];
     const root = document.getElementById('bc-apps'), btn = document.getElementById('bc-apps-btn'), panel = document.getElementById('bc-apps-panel');
     const draw = () => {
