@@ -24,9 +24,12 @@ def local_targets(html_path):
         content = f.read()
     targets = []
     for match in LINK_RE.findall(content):
-        if match.startswith(("http://", "https://", "#", "mailto:", "tel:")):
+        if match.startswith(("http://", "https://", "//", "#", "mailto:", "tel:", "data:", "javascript:")):
             continue
-        targets.append(match.lstrip("/"))
+        # Drop cache-busters (?v=...) and in-page anchors (#...) before checking the file exists
+        path = match.split("#", 1)[0].split("?", 1)[0].lstrip("/")
+        if path:
+            targets.append(path)
     return targets
 
 
