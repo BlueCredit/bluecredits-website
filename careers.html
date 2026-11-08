@@ -199,6 +199,20 @@ textarea{resize:vertical;min-height:90px;}
 .badge-ct{background:#EBF3FF;color:var(--blue);}
 .apply-btn{background:none;border:1px solid var(--gray-100);color:var(--blue);font-size:.82rem;font-weight:600;font-family:var(--ff-b);padding:8px 18px;border-radius:8px;cursor:pointer;transition:all .2s;white-space:nowrap;}
 .apply-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+.job-actions{display:flex;gap:.6rem;flex-shrink:0;}
+.apply-btn.apply-primary{background:var(--blue);color:#fff;border-color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;}
+.apply-btn.apply-primary:hover{background:var(--blue-dk);}
+.job-details{border:1px solid var(--gray-100);border-radius:14px;margin-top:-.4rem;}
+.job-details:not([open]){display:none;}
+.job-details[open]{padding:1.25rem 2rem 1.5rem;}
+.job-details summary{display:none;}
+.job-details p,.job-details li{font-size:.86rem;color:var(--gray-500);line-height:1.7;}
+.job-details h4{font-size:.9rem;font-weight:700;color:var(--navy);margin:1.1rem 0 .4rem;}
+.job-details ul{padding-left:1.2rem;margin:0;}
+.job-details li{margin-bottom:.35rem;}
+.job-details a{color:var(--blue);}
+.job-details .job-apply{margin-top:1rem;}
+@media(max-width:700px){.job-card{flex-direction:column;align-items:flex-start;gap:1rem;padding:1.2rem;}.job-details,.job-details[open]{padding-left:1.2rem;padding-right:1.2rem;}}
 .contact-dark{background:var(--navy);padding:80px 4rem;}
 .contact-dark .lbl{color:rgba(126,200,245,.9);}
 .contact-dark .stitle{color:#fff;}
@@ -339,10 +353,30 @@ document.addEventListener('click',function(e){
     <div class="lbl">Open Roles</div>
     <h2 class="stitle">Join the team</h2>
     <p class="ssub">We welcome water scientists, engineers, data analysts, and technologists who want to apply cutting-edge methods to real water challenges.</p>
-    <div class="no-roles">
-      <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M20.25 14.15v4.073a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V14.15M16.5 6V5.25A2.25 2.25 0 0014.25 3h-4.5A2.25 2.25 0 007.5 5.25V6m9 0H7.5m9 0h2.25A2.25 2.25 0 0121 8.25v1.5M7.5 6H5.25A2.25 2.25 0 003 8.25v1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <h3>No open roles right now</h3>
-      <p>We don't have any active vacancies at the moment, but we are always interested in hearing from talented water scientists, engineers, data analysts, and technologists. Submit your details below and we'll be in touch when a suitable role opens up.</p>
+    <div class="job-list">
+      <div class="job-card job-open">
+        <div class="job-info">
+          <h3>Water Sustainability Associate</h3>
+          <div class="job-meta">
+            <span class="job-tag"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5"/></svg>Lahore, Pakistan or Nairobi, Kenya</span>
+            <span class="job-tag"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg>Junior to mid-level (2 to 6 years)</span>
+            <span class="badge badge-ft">Full-time</span>
+          </div>
+        </div>
+        <div class="job-actions">
+          <button type="button" class="apply-btn" onclick="var d=document.getElementById('job-wsa');d.open=!d.open;this.textContent=d.open?'Hide details':'View details'">View details</button>
+          <a class="apply-btn apply-primary" href="#apply" onclick="var s=document.querySelector('#apply select[name=role]');if(s)s.value='Water Sustainability Associate'">Apply</a>
+        </div>
+      </div>
+      <details class="job-details" id="job-wsa">
+        <summary>Job description</summary>
+        <p>We are looking for a Water Sustainability Associate to help run our water marketplace: building a pipeline of water projects, working with project developers, checking the technical basis of each project, keeping our data well managed, and supporting partnerships and growth.</p>
+        <h4>Responsibilities</h4>
+        <ul><li>Source and screen water projects and data.</li><li>Work with project developers to prepare and publish projects.</li><li>Review the technical analysis behind each project.</li><li>Maintain data quality and documentation.</li><li>Support our online community of water projects and opportunities.</li><li>Support business development and strategy.</li></ul>
+        <h4>Qualifications</h4>
+        <ul><li>A degree in water resources, engineering, hydrology, environmental science, or a related field.</li><li>2 to 6 years of relevant experience in the water sector.</li><li>Strong data and GIS skills.</li><li>Good written and spoken English, and comfortable working remotely across time zones.</li></ul>
+        <p class="job-apply">To apply, use the form below and choose "Water Sustainability Associate".</p>
+      </details>
     </div>
     <div id="apply" style="padding-top:1rem">
       <div class="form-layout">
@@ -353,7 +387,7 @@ document.addEventListener('click',function(e){
           <input type="hidden" name="_subject" value="New Job Application — BlueCredit">
           <input type="hidden" name="_next" value="careers.html?sent=1">
             <div class="frow"><div class="fg2"><label>Full name *</label><input type="text" name="full_name" required></div><div class="fg2"><label>Email *</label><input type="email" name="email" required></div></div>
-            <div class="frow"><div class="fg2"><label>Role of interest</label><select name="role"><option value="">Select</option><option>Water Resources</option><option>Data Scientist</option><option>Software</option><option>Business Development</option></select></div><div class="fg2"><label>LinkedIn profile</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/"></div></div>
+            <div class="frow"><div class="fg2"><label>Role of interest</label><select name="role"><option value="">Select</option><option>Water Sustainability Associate</option><option>Water Resources</option><option>Data Scientist</option><option>Software</option><option>Business Development</option></select></div><div class="fg2"><label>LinkedIn profile</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/"></div></div>
             <div class="fg2"><label>Cover message *</label><textarea rows="4" name="message" required placeholder="Tell us about your background and why you want to join BlueCredit…"></textarea></div>
             <button type="submit" class="sub-btn">Submit Application</button>
             
